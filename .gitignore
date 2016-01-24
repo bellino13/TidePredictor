@@ -1,2 +1,6 @@
-#PyCharm project stuff
+#directories to ignore
 .idea/
+__pycache__/
+
+#extensions to ignore
+*.pyc
