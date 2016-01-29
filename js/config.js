@@ -1,17 +1,17 @@
 var config = {
-    lang: 'nl',
+    lang: 'en',
     time: {
-        timeFormat: 12
+        timeFormat: 24
     },
     weather: {
         //change weather params here:
         //units: metric or imperial
         params: {
-            q: 'Baarn,Netherlands',
-            units: 'metric',
+            q: 'Englewood,FL',
+            units: 'imperial',
             // if you want a different lang for the weather that what is set above, change it here
-            lang: 'nl',
-            APPID: 'YOUR_FREE_OPENWEATHER_API_KEY'
+            lang: 'en',
+            APPID: '44db6a862fba0b067b1930da0d769e98'
         }
     },
     compliments: {
@@ -39,5 +39,9 @@ var config = {
     },
     news: {
         feed: 'http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml'
+    },
+
+    tides: {
+        interval: 6000
     }
 }

@@ -1,6 +1,6 @@
 var weather = {
 	// Default language is Dutch because that is what the original author used
-	lang: config.lang || 'nl',
+	lang: config.lang || 'en',
 	params: config.weather.params || null,
 	iconTable: {
 		'01d':'wi-day-sunny',
@@ -68,7 +68,8 @@ weather.updateCurrentWeather = function () {
 
 	$.ajax({
 		type: 'GET',
-		url: weather.apiBase + '/' + weather.apiVersion + '/' + weather.weatherEndpoint,
+		url: weather.apiBase + '/' + weather.apiVersion + '/' + weather.weatherEndpoint + '?=' + config.weather.q
+		        + '&' + config.weather.APPID,
 		dataType: 'json',
 		data: weather.params,
 		success: function (data) {
@@ -90,7 +91,7 @@ weather.updateCurrentWeather = function () {
 				_sunset = moment(data.sys.sunset*1000).format('HH:mm');
 
 			var _newWindHtml = '<span class="wi wi-strong-wind xdimmed"></span> ' + this.ms2Beaufort(_wind),
-				_newSunHtml = '<span class="wi wi-sunrise xdimmed"></span> ' + _sunrise;
+			    _newSunHtml = '<span class="wi wi-sunrise xdimmed"></span> ' + _sunrise;
 
 			if (_sunrise < _now && _sunset > _now) {
 				_newSunHtml = '<span class="wi wi-sunset xdimmed"></span> ' + _sunset;

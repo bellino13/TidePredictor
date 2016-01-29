@@ -57,4 +57,6 @@ jQuery(document).ready(function($) {
 
 	news.init();
 
+	//tides.init();
+
 });

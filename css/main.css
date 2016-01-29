@@ -1,13 +1,13 @@
 body,
 html {
-  background: #000;
+  background: #fff;
   padding: 0px;
   margin: 0px;
-  width: 100%;
-  height: 100%;
+  width: 800px;
+  height: 480px;
   font-family: "HelveticaNeue-Light", sans-serif;
   letter-spacing: -2px;
-  color: #fff;
+  color: #aaa;
   font-size: 75px;
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricprecision;
@@ -141,9 +141,27 @@ html {
   top: -35px;
 }
 
-.forecast-table {
+.tide-graph {
+
+}
+
+.tide-table {
   float: right;
   text-align: right;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.tide-table .day,
+.tide-table .time,
+.tide-table .water-level {
+  width: 50px;
+  text-align: right;
+}
+
+.forecast-table {
+  float: left;
+  text-align: left;
   font-size: 20px;
   line-height: 20px;
 }
@@ -181,7 +199,7 @@ html {
   font-size: 60px;
   border-radius: 1000px;
   border-radius: 1200px;
-  display: none;
+  /*display: none;*/
 }
 
 @font-face {
