@@ -13,7 +13,7 @@ var tides = {
 tides.updateCurrentTides = function () {
 
 	$.ajax({
-		type: 'POST',
+		type: 'GET',
 		url: '../py/tides.py',
 		dataType: 'text',
 		/*data: {url: this.urlBase + this.stationID},*/

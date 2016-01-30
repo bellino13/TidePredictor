@@ -23,9 +23,7 @@
 	<div class="top right">
 	    <div class="tidetable small dimmed">Tide Table</div>
 	</div>
-	<div class="center-ver center-hor"><div class="tidegraph">
-	<img src="http://tidesandcurrents.noaa.gov/noaatidepredictions/serveimage?filename=images/8725747/27012016/541/8725747_2016-01-28.gif">
-	</div></div>
+	<div class="center-ver center-hor"><div class="tidegraph"></div></div>
 	<!--
 	<div class="lower-third center-hor"><div class="compliment light"></div></div>
 	<div class="bottom center-hor"><div class="news medium"></div></div>
