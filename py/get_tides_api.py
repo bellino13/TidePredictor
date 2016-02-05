@@ -101,7 +101,7 @@ now = datetime.now()
 now_date = '{0}{1:0>2d}{2:0>2d} {3:0>2d}:{4:0>2d}'.format(now.year, now.month, now.day, now.hour, now.minute)
 begin = now-timedelta(hours=6)
 begin_date = '{0}{1:0>2d}{2:0>2d} {3:0>2d}:{4:0>2d}'.format(begin.year, begin.month, begin.day, begin.hour, begin.minute)
-end = now+timedelta(hours=18)
+end = now+timedelta(hours=18+24)
 end_date = '{0}{1:0>2d}{2:0>2d} {3:0>2d}:{4:0>2d}'.format(end.year, end.month, end.day, end.hour, end.minute)
 options = ['begin_date={}'.format(now_date),
            'end_date={}'.format(end_date),
@@ -119,8 +119,8 @@ pr = parse_api_response(xml, 'pr')
 
 s = pd.concat([wl, pr])
 plot(s, 'test.png', heading=None)
-
-# Find local minima (low tides) and maxima (high tides)
-maxm = argrelextrema(pr.values, np.greater)  # (array([1, 3, 6]),)
-minm = argrelextrema(pr.values, np.less)  # (array([2, 5, 7]),)
-print(pr.index[maxm], pr.index[minm])
+#
+# # Find local minima (low tides) and maxima (high tides)
+# maxm = argrelextrema(pr.values, np.greater)  # (array([1, 3, 6]),)
+# minm = argrelextrema(pr.values, np.less)  # (array([2, 5, 7]),)
+# print(pr.index[maxm], pr.index[minm])
