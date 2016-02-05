@@ -1,7 +1,7 @@
 var tides = {
 	urlBase: 'http://tidesandcurrents.noaa.gov/noaatidepredictions/NOAATidesFacade.jsp?Stationid=',
 	stationID: '8725747',
-    updateInterval: config.tides.interval,
+    updateInterval: 20000,
     tideGraphLocation: '.tidegraph',
     tideTableLocation: '.tidetable'
 }
@@ -13,21 +13,23 @@ var tides = {
 tides.updateCurrentTides = function () {
 
 	$.ajax({
-		type: 'GET',
-		url: '../py/tides.py',
+		type: 'POST',
+		url: 'tides.py',
 		dataType: 'text',
-		/*data: {url: this.urlBase + this.stationID},*/
+		data: {'url': this.urlBase + this.stationID},
 		success: function (response) {
 
 		    var _newTideGraphHtml = '';
 		    _newTideGraphHtml += response;
 
-			$(this.tideGraphLocation).updateWithText(_newTideGraphHtml, this.fadeInterval);
+			$(this.tideGraphLocation).updateWithText(_newTideGraphHtml);
 
 		}.bind(this),
 		error: function () {
 
-		}
+		    $(this.tideGraphLocation).updateWithText("Error!");
+
+		}.bind(this)
 	});
 
 }
