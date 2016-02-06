@@ -23,7 +23,7 @@
 	<div class="top right">
 	    <div class="tidetable small dimmed">Tide Table</div>
 	</div>
-	<div class="center-ver center-hor"><div class="tidegraph"></div></div>
+	<div class="top center-hor"><div class="tidegraph"></div></div>
 	<!--
 	<div class="lower-third center-hor"><div class="compliment light"></div></div>
 	<div class="bottom center-hor"><div class="news medium"></div></div>

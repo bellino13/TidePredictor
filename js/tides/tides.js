@@ -7,16 +7,51 @@ var tides = {
 }
 
 
+var url = "py/tides.png"; //url to load image from
+var refreshInterval = 1000; //in ms
+var drawDate = true; //draw date string
+var img;
+
+tides.init = function () {
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    img = new Image();
+    img.onload = function() {
+        canvas.setAttribute("width", img.width)
+        canvas.setAttribute("height", img.height)
+        context.drawImage(this, 0, 0);
+        if(drawDate) {
+            var now = new Date();
+            var text = now.toLocaleDateString() + " " + now.toLocaleTimeString();
+            var maxWidth = 100;
+            var x = img.width-10-maxWidth;
+            var y = img.height-10;
+            context.strokeStyle = 'black';
+            context.lineWidth = 2;
+            context.strokeText(text, x, y, maxWidth);
+            context.fillStyle = 'white';
+            context.fillText(text, x, y, maxWidth);
+        }
+    };
+    refresh();
+}
+function refresh()
+{
+    img.src = url + "?t=" + new Date().getTime();
+    setTimeout("refresh()",refreshInterval);
+}
+
+
 /**
  * Retrieves the current temperature and weather patter from the OpenWeatherMap API
  */
+/*
 tides.updateCurrentTides = function () {
 
 	$.ajax({
 		type: 'POST',
 		url: 'tides.py',
 		dataType: 'text',
-		data: {'url': this.urlBase + this.stationID},
 		success: function (response) {
 
 		    var _newTideGraphHtml = '';
@@ -27,7 +62,7 @@ tides.updateCurrentTides = function () {
 		}.bind(this),
 		error: function () {
 
-		    $(this.tideGraphLocation).updateWithText("Error!");
+		    $(this.tideGraphLocation).updateWithText('<img src="py/tides.png">');
 
 		}.bind(this)
 	});
@@ -41,3 +76,4 @@ tides.init = function () {
 	}.bind(this), this.updateInterval);
 
 }
+*/
