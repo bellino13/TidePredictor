@@ -137,9 +137,10 @@ def plot(s, now):
     ax.xaxis.set_major_locator(days)
     ax.xaxis.set_major_formatter(daysFmt)
 
+    ax.plot_date(s.index.tolist(), s.values.tolist(), '-', color='blue')
     ax.plot_date(s.index.tolist(), [0]*len(s), '--', color='#aaaaaa')
     ax.plot_date((now, now), ax.get_ylim(), '--', color='#aaaaaa')
-    ax.plot_date(s.index.tolist(), s.values.tolist(), '-', color='blue')
+
 
     plt.text(.1, .03, now.strftime("%I:%M %p").lstrip('0'), transform=ax.transAxes)
 
