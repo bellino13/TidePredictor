@@ -1,7 +1,7 @@
 var tides = {
 	urlBase: 'http://tidesandcurrents.noaa.gov/noaatidepredictions/NOAATidesFacade.jsp?Stationid=',
 	stationID: '8725747',
-    updateInterval: 20000,
+    updateInterval: 6000,
     tideGraphLocation: '.tidegraph',
     tideTableLocation: '.tidetable'
 }
