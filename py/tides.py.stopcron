@@ -12,11 +12,7 @@ from matplotlib.dates import DateFormatter, HourLocator, DayLocator
 # plt.style.use('ggplot')
 
 
-
 def index():
-    # postData = req.form
-    # url = str(postData['url'].value)
-
     station = '8726520'  # St Petersburg
     api_base = r'http://tidesandcurrents.noaa.gov/api/datagetter?'
     t_offset = -17
@@ -51,7 +47,7 @@ def index():
     pr = pr*np.mean([h_offset_high, h_offset_low])
 
     # Plot tide chart
-    plot(pr, now)
+    plot(pr, now, 'tides.png')
 
     html = '<img src="js/tides/tides.png">'
     return html
@@ -122,7 +118,7 @@ def parse_api_response(xml, tag):
     return s
 
 
-def plot(s, now):
+def plot(s, now, fname):
 
     init_plotting()
     fig, ax = plt.subplots()
@@ -155,14 +151,14 @@ def plot(s, now):
         spine.set_visible(False)
 
     plt.tight_layout()
-    plt.savefig('tides.png', transparent=False)
+    plt.savefig(fname, transparent=False)
     # plt.show()
     # plt.close()
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     html = index()
-    # print(html)
+    print(html, 'cron worked', datetime.now())
 
 # station = '8726520'  # St Petersburg
 # api_base = r'http://tidesandcurrents.noaa.gov/api/datagetter?'
